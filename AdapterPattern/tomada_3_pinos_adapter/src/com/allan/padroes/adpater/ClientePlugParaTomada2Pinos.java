@@ -5,7 +5,7 @@ import com.katyusco.padroes.adpater.servicos.Fio;
 
 /**
 * @author allan
-* @version 0.0.1
+* @version 0.0.2
 *
 */
 public class ClientePlugParaTomada2Pinos{
@@ -13,21 +13,9 @@ public class ClientePlugParaTomada2Pinos{
 	/**
 	 * @param args
 	 */
-	private Fio pinoFase;
-	private Fio pinoNeutro;
-	
-	public ClientePlugParaTomada2Pinos(Fio pinoFase, Fio pinoNeutro) {
-		this.pinoFase = pinoFase;
-		this.pinoNeutro = pinoNeutro;
-	}
-	
-	public void acoplaPlug() {
-		Adaptador2pinos adaptador = new Adaptador2pinos(this.pinoFase, this.pinoNeutro);
-		adaptador.forneceEnergia();
-	}
 
 	public static void main(String[] args) {
-		ClientePlugParaTomada2Pinos tomada = new ClientePlugParaTomada2Pinos(Fio.FASE, Fio.NEUTRO);
-		tomada.acoplaPlug();
+		Adaptador2pinosPara3 tomada = new Adaptador2pinosPara3(Fio.FASE, Fio.NEUTRO);
+		tomada.conectar();;
 	}
 }
